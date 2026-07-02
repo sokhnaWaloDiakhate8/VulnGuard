@@ -1,0 +1,143 @@
+1. Introduction
+1.1 Objet du document
+Ce document a pour objectif de définir les besoins fonctionnels et non fonctionnels de la plateforme VulnGuard, afin de garantir que le système réponde aux attentes des futurs utilisateurs tout en respectant les exigences techniques et de sécurité.
+
+1.2 Objectifs du système
+La plateforme doit permettre de :
+•	centraliser les informations relatives aux actifs informatiques ;
+•	détecter automatiquement les vulnérabilités ;
+•	suivre leur cycle de vie jusqu'à leur correction ;
+•	fournir une vision globale de l'état de sécurité de l'organisation.
+
+2. Identification des parties prenantes
+Partie prenante	Intérêt
+Administrateur	Configure la plateforme et gère les utilisateurs
+Analyste sécurité	Réalise les analyses et traite les vulnérabilités
+Responsable sécurité	Supervise les indicateurs et prend des décisions 
+Technicien système/réseau	Corrige les vulnérabilités assignés
+Direction	Consulte les rapports et les indicateurs de risque
+
+3. Besoins fonctionnels
+Les besoins fonctionnels décrivent ce que le système doit faire.
+BF1 : Authentification
+Le système doit permettre :
+•	l'inscription (si autorisée par l'administrateur) ;
+•	la connexion ;
+•	la déconnexion ;
+•	la réinitialisation du mot de passe ;
+•	la gestion des rôles.
+BF2 : Gestion des utilisateurs
+L'administrateur peut :
+•	créer un utilisateur ;
+•	modifier un utilisateur ;
+•	supprimer un utilisateur ;
+•	attribuer un rôle ;
+•	désactiver un compte.
+BF3 : Gestion des actifs
+Le système permet :
+•	d'ajouter un actif ;
+•	de modifier un actif ;
+•	de supprimer un actif ;
+•	de rechercher un actif ;
+•	d'importer plusieurs actifs (CSV) ;
+•	d'afficher les détails d'un actif.
+Chaque actif possède notamment :
+•	un nom ;
+•	une adresse IP ;
+•	un système d'exploitation ;
+•	une catégorie ;
+•	une criticité ;
+•	un propriétaire.
+BF4 : Découverte réseau
+L'analyste peut :
+•	lancer un scan Nmap ;
+•	découvrir automatiquement les machines ;
+•	détecter les ports ouverts ;
+•	identifier les services ;
+•	identifier le système d'exploitation.
+BF5 : Gestion des scans de vulnérabilités
+Le système doit :
+•	lancer un scan ;
+•	enregistrer les résultats ;
+•	associer les vulnérabilités aux actifs ;
+•	conserver l'historique des scans.
+BF6 : Gestion des vulnérabilités
+L'utilisateur peut :
+•	consulter les vulnérabilités ;
+•	filtrer par gravité ;
+•	filtrer par actif ;
+•	rechercher une CVE ;
+•	modifier le statut.
+
+BF7 : Gestion des remédiations
+Le système permet :
+•	d'assigner une vulnérabilité à un technicien ;
+•	de définir une date limite ;
+•	d'ajouter des commentaires ;
+•	de suivre l'état d'avancement ;
+•	de conserver un historique des actions.
+BF8 : Tableau de bord
+Le tableau de bord affiche :
+•	le nombre d'actifs ;
+•	le nombre de vulnérabilités ;
+•	la répartition par criticité ;
+•	les vulnérabilités les plus critiques ;
+•	les actifs les plus exposés ;
+•	l'évolution des vulnérabilités dans le temps.
+BF9 : Rapports
+Le système permet :
+•	la génération de rapports PDF ;
+•	l'export Excel ;
+•	la planification de rapports périodiques.
+BF10 : Notifications
+Le système envoie des notifications lorsqu'une :
+•	vulnérabilité critique est détectée ;
+•	échéance de remédiation approche ;
+•	remédiation est validée.
+
+4. Besoins non fonctionnels
+Ces besoins concernent les qualités attendues du système.
+Performance
+•	Le tableau de bord doit se charger rapidement.
+•	Les recherches doivent être fluides.
+•	Les scans doivent pouvoir être exécutés en arrière-plan.
+Disponibilité
+•	L'application doit être accessible en permanence, sauf pendant les opérations de maintenance.
+Sécurité
+•	Authentification par JWT.
+•	Mots de passe hachés avec bcrypt.
+•	Chiffrement des communications via HTTPS.
+•	Contrôle d'accès basé sur les rôles (RBAC).
+•	Journalisation des actions importantes (audit).
+Évolutivité
+La plateforme doit permettre d'ajouter facilement :
+•	de nouveaux scanners ;
+•	de nouveaux types de rapports ;
+•	de nouveaux modules.
+Ergonomie
+L'interface doit être :
+•	simple ;
+•	responsive ;
+•	intuitive.
+Maintenabilité
+Le code doit être :
+•	documenté ;
+•	modulaire ;
+•	testé.
+
+5. Contraintes
+•	Développement web.
+•	Architecture REST.
+•	Base PostgreSQL.
+•	Docker pour le déploiement.
+•	Compatible Linux.
+
+6. Règles métier
+Quelques règles essentielles :
+•	Un actif peut posséder plusieurs vulnérabilités.
+•	Une vulnérabilité peut affecter plusieurs actifs.
+•	Une remédiation est toujours associée à une vulnérabilité sur un actif précis.
+•	Seul un administrateur peut supprimer un utilisateur.
+•	Une vulnérabilité ne peut être fermée qu'après validation.
+•	Tous les scans doivent être historisés.
+
