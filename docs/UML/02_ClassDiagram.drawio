@@ -1,0 +1,159 @@
+<mxfile host="app.diagrams.net" agent="Claude" version="24.0.0">
+  <diagram id="class-vulnguard" name="Diagramme de classes">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+<mxCell id="id2" value="Identity" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=15;fillColor=#e1d5e7;strokeColor=#666666;dashed=1;opacity=40;" vertex="1" parent="1"><mxGeometry x="40" y="40" width="260" height="480" as="geometry"/></mxCell>
+<mxCell id="id3" value="User" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" vertex="1" parent="1"><mxGeometry x="60" y="80" width="220" height="166" as="geometry"/></mxCell>
+<mxCell id="id4" value="- id: UUID
+- nom: String
+- prenom: String
+- email: String
+- password: String
+- role: Role
+- actif: Boolean
+- dateCreation: DateTime" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id3"><mxGeometry y="30" width="220" height="136" as="geometry"/></mxCell>
+<mxCell id="id5" value="Role" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" vertex="1" parent="1"><mxGeometry x="60" y="280" width="220" height="70" as="geometry"/></mxCell>
+<mxCell id="id6" value="- id: UUID
+- nom: String" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id5"><mxGeometry y="30" width="220" height="40" as="geometry"/></mxCell>
+<mxCell id="id7" value="Permission" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" vertex="1" parent="1"><mxGeometry x="60" y="370" width="220" height="70" as="geometry"/></mxCell>
+<mxCell id="id8" value="- id: UUID
+- nom: String" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id7"><mxGeometry y="30" width="220" height="40" as="geometry"/></mxCell>
+<mxCell id="id9" value="Session" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" vertex="1" parent="1"><mxGeometry x="60" y="450" width="220" height="86" as="geometry"/></mxCell>
+<mxCell id="id10" value="- id: UUID
+- token: String
+- dateExpiration: DateTime" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id9"><mxGeometry y="30" width="220" height="56" as="geometry"/></mxCell>
+<mxCell id="id11" value="Inventory" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=15;fillColor=#d5e8d4;strokeColor=#666666;dashed=1;opacity=40;" vertex="1" parent="1"><mxGeometry x="340" y="40" width="260" height="560" as="geometry"/></mxCell>
+<mxCell id="id12" value="Asset" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1"><mxGeometry x="360" y="80" width="220" height="134" as="geometry"/></mxCell>
+<mxCell id="id13" value="- id: UUID
+- nom: String
+- ip: String
+- hostname: String
+- criticite: Enum
+- statut: Enum" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id12"><mxGeometry y="30" width="220" height="104" as="geometry"/></mxCell>
+<mxCell id="id14" value="AssetCategory" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1"><mxGeometry x="360" y="260" width="220" height="70" as="geometry"/></mxCell>
+<mxCell id="id15" value="- id: UUID
+- nom: String" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id14"><mxGeometry y="30" width="220" height="40" as="geometry"/></mxCell>
+<mxCell id="id16" value="Location" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1"><mxGeometry x="360" y="350" width="220" height="70" as="geometry"/></mxCell>
+<mxCell id="id17" value="- id: UUID
+- nom: String" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id16"><mxGeometry y="30" width="220" height="40" as="geometry"/></mxCell>
+<mxCell id="id18" value="OperatingSystem" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1"><mxGeometry x="360" y="440" width="220" height="86" as="geometry"/></mxCell>
+<mxCell id="id19" value="- id: UUID
+- nom: String
+- version: String" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id18"><mxGeometry y="30" width="220" height="56" as="geometry"/></mxCell>
+<mxCell id="id20" value="Tag" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1"><mxGeometry x="360" y="540" width="220" height="70" as="geometry"/></mxCell>
+<mxCell id="id21" value="- id: UUID
+- nom: String" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id20"><mxGeometry y="30" width="220" height="40" as="geometry"/></mxCell>
+<mxCell id="id22" value="Scanning" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=15;fillColor=#ffe6cc;strokeColor=#666666;dashed=1;opacity=40;" vertex="1" parent="1"><mxGeometry x="640" y="40" width="260" height="560" as="geometry"/></mxCell>
+<mxCell id="id23" value="Scanner" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;" vertex="1" parent="1"><mxGeometry x="660" y="80" width="220" height="86" as="geometry"/></mxCell>
+<mxCell id="id24" value="- id: UUID
+- nom: String
+- type: Enum" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id23"><mxGeometry y="30" width="220" height="56" as="geometry"/></mxCell>
+<mxCell id="id25" value="Scan" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;" vertex="1" parent="1"><mxGeometry x="660" y="190" width="220" height="102" as="geometry"/></mxCell>
+<mxCell id="id26" value="- id: UUID
+- dateDebut: DateTime
+- dateFin: DateTime
+- statut: Enum" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id25"><mxGeometry y="30" width="220" height="72" as="geometry"/></mxCell>
+<mxCell id="id27" value="ScanConfiguration" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;" vertex="1" parent="1"><mxGeometry x="660" y="340" width="220" height="70" as="geometry"/></mxCell>
+<mxCell id="id28" value="- id: UUID
+- parametres: JSON" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id27"><mxGeometry y="30" width="220" height="40" as="geometry"/></mxCell>
+<mxCell id="id29" value="Port" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;" vertex="1" parent="1"><mxGeometry x="660" y="430" width="220" height="86" as="geometry"/></mxCell>
+<mxCell id="id30" value="- id: UUID
+- numero: Integer
+- protocole: String" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id29"><mxGeometry y="30" width="220" height="56" as="geometry"/></mxCell>
+<mxCell id="id31" value="Service" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;" vertex="1" parent="1"><mxGeometry x="660" y="520" width="220" height="86" as="geometry"/></mxCell>
+<mxCell id="id32" value="- id: UUID
+- nom: String
+- version: String" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id31"><mxGeometry y="30" width="220" height="56" as="geometry"/></mxCell>
+<mxCell id="id33" value="Vulnerability" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=15;fillColor=#f8cecc;strokeColor=#666666;dashed=1;opacity=40;" vertex="1" parent="1"><mxGeometry x="940" y="40" width="260" height="640" as="geometry"/></mxCell>
+<mxCell id="id34" value="CVE" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1"><mxGeometry x="960" y="80" width="220" height="102" as="geometry"/></mxCell>
+<mxCell id="id35" value="- id: UUID
+- code: String
+- description: Text
+- cvssBase: Float" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id34"><mxGeometry y="30" width="220" height="72" as="geometry"/></mxCell>
+<mxCell id="id36" value="Detection" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1"><mxGeometry x="960" y="210" width="220" height="86" as="geometry"/></mxCell>
+<mxCell id="id37" value="- id: UUID
+- dateDetection: DateTime
+- scanId: UUID" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id36"><mxGeometry y="30" width="220" height="56" as="geometry"/></mxCell>
+<mxCell id="id38" value="VulnerabilityInstance" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1"><mxGeometry x="960" y="320" width="220" height="86" as="geometry"/></mxCell>
+<mxCell id="id39" value="- id: UUID
+- statut: Enum
+- dateDetection: DateTime" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id38"><mxGeometry y="30" width="220" height="56" as="geometry"/></mxCell>
+<mxCell id="id40" value="Patch" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1"><mxGeometry x="960" y="440" width="220" height="86" as="geometry"/></mxCell>
+<mxCell id="id41" value="- id: UUID
+- description: Text
+- disponible: Boolean" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id40"><mxGeometry y="30" width="220" height="56" as="geometry"/></mxCell>
+<mxCell id="id42" value="RiskScore" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1"><mxGeometry x="960" y="540" width="220" height="86" as="geometry"/></mxCell>
+<mxCell id="id43" value="- id: UUID
+- valeur: Float
+- dateCalcul: DateTime" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id42"><mxGeometry y="30" width="220" height="56" as="geometry"/></mxCell>
+<mxCell id="id44" value="Remediation" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=15;fillColor=#fff2cc;strokeColor=#666666;dashed=1;opacity=40;" vertex="1" parent="1"><mxGeometry x="40" y="560" width="260" height="400" as="geometry"/></mxCell>
+<mxCell id="id45" value="Remediation" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1"><mxGeometry x="60" y="600" width="220" height="86" as="geometry"/></mxCell>
+<mxCell id="id46" value="- id: UUID
+- statut: Enum
+- dateEcheance: DateTime" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id45"><mxGeometry y="30" width="220" height="56" as="geometry"/></mxCell>
+<mxCell id="id47" value="Task" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1"><mxGeometry x="60" y="700" width="220" height="86" as="geometry"/></mxCell>
+<mxCell id="id48" value="- id: UUID
+- description: Text
+- statut: Enum" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id47"><mxGeometry y="30" width="220" height="56" as="geometry"/></mxCell>
+<mxCell id="id49" value="Comment" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1"><mxGeometry x="60" y="800" width="220" height="86" as="geometry"/></mxCell>
+<mxCell id="id50" value="- id: UUID
+- texte: Text
+- date: DateTime" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id49"><mxGeometry y="30" width="220" height="56" as="geometry"/></mxCell>
+<mxCell id="id51" value="History" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1"><mxGeometry x="60" y="890" width="220" height="86" as="geometry"/></mxCell>
+<mxCell id="id52" value="- id: UUID
+- action: String
+- date: DateTime" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id51"><mxGeometry y="30" width="220" height="56" as="geometry"/></mxCell>
+<mxCell id="id53" value="Reporting" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=15;fillColor=#cce5ff;strokeColor=#666666;dashed=1;opacity=40;" vertex="1" parent="1"><mxGeometry x="340" y="620" width="260" height="420" as="geometry"/></mxCell>
+<mxCell id="id54" value="Report" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#cce5ff;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1"><mxGeometry x="360" y="660" width="220" height="102" as="geometry"/></mxCell>
+<mxCell id="id55" value="- id: UUID
+- type: Enum
+- dateGeneration: DateTime
+- format: Enum" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id54"><mxGeometry y="30" width="220" height="72" as="geometry"/></mxCell>
+<mxCell id="id56" value="Notification" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#cce5ff;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1"><mxGeometry x="360" y="780" width="220" height="102" as="geometry"/></mxCell>
+<mxCell id="id57" value="- id: UUID
+- titre: String
+- message: Text
+- lue: Boolean" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id56"><mxGeometry y="30" width="220" height="72" as="geometry"/></mxCell>
+<mxCell id="id58" value="Dashboard" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#cce5ff;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1"><mxGeometry x="360" y="900" width="220" height="70" as="geometry"/></mxCell>
+<mxCell id="id59" value="- id: UUID
+- nom: String" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id58"><mxGeometry y="30" width="220" height="40" as="geometry"/></mxCell>
+<mxCell id="id60" value="AuditLog" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#cce5ff;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1"><mxGeometry x="360" y="970" width="220" height="102" as="geometry"/></mxCell>
+<mxCell id="id61" value="- id: UUID
+- action: String
+- utilisateurId: UUID
+- date: DateTime" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;" vertex="1" parent="id60"><mxGeometry y="30" width="220" height="72" as="geometry"/></mxCell>
+<mxCell id="id62" value="1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id3" target="id5"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id63" value="1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id5" target="id7"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id64" value="1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id3" target="id9"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id65" value="lance
+1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id3" target="id25"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id66" value="*        1" style="endArrow=none;html=1;" edge="1" parent="1" source="id12" target="id14"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id67" value="*        1" style="endArrow=none;html=1;" edge="1" parent="1" source="id12" target="id16"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id68" value="*        1" style="endArrow=none;html=1;" edge="1" parent="1" source="id12" target="id18"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id69" value="*        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id12" target="id20"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id70" value="1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id23" target="id25"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id71" value="1        1" style="endArrow=none;html=1;" edge="1" parent="1" source="id25" target="id27"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id72" value="1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id25" target="id29"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id73" value="1        1" style="endArrow=none;html=1;" edge="1" parent="1" source="id29" target="id31"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id74" value="1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id12" target="id36"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id75" value="1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id25" target="id36"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id76" value="1        1" style="endArrow=none;html=1;" edge="1" parent="1" source="id36" target="id38"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id77" value="1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id34" target="id38"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id78" value="1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id34" target="id40"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id79" value="1        1" style="endArrow=none;html=1;" edge="1" parent="1" source="id38" target="id42"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id80" value="1        1" style="endArrow=none;html=1;" edge="1" parent="1" source="id38" target="id45"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id81" value="assigné à
+1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id3" target="id45"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id82" value="1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id45" target="id47"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id83" value="1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id45" target="id49"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id84" value="1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id45" target="id51"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id85" value="1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id3" target="id54"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id86" value="1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id3" target="id56"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id87" value="1        *" style="endArrow=none;html=1;" edge="1" parent="1" source="id3" target="id60"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+<mxCell id="id88" value="*        1" style="endArrow=none;html=1;" edge="1" parent="1" source="id54" target="id58"><mxGeometry relative="1" as="geometry"><mxPoint as="sourcePoint"/></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
