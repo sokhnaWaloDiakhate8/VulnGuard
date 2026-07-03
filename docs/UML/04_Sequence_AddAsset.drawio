@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net" agent="Claude" version="24.0.0">
+  <diagram id="seq-addasset" name="Séquence - Ajout d&#x27;un actif">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+<mxCell id="id2" value="Analyste" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" vertex="1" parent="1"><mxGeometry x="60" y="30" width="120" height="40" as="geometry"/></mxCell>
+<mxCell id="id3" style="endArrow=none;dashed=1;html=1;strokeColor=#666666;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="120" y="70" as="sourcePoint"/><mxPoint x="120" y="420" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="id4" value="Frontend
+(React)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" vertex="1" parent="1"><mxGeometry x="340" y="30" width="120" height="40" as="geometry"/></mxCell>
+<mxCell id="id5" style="endArrow=none;dashed=1;html=1;strokeColor=#666666;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="400" y="70" as="sourcePoint"/><mxPoint x="400" y="420" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="id6" value="Backend API" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" vertex="1" parent="1"><mxGeometry x="620" y="30" width="120" height="40" as="geometry"/></mxCell>
+<mxCell id="id7" style="endArrow=none;dashed=1;html=1;strokeColor=#666666;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="680" y="70" as="sourcePoint"/><mxPoint x="680" y="420" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="id8" value="PostgreSQL" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" vertex="1" parent="1"><mxGeometry x="900" y="30" width="120" height="40" as="geometry"/></mxCell>
+<mxCell id="id9" style="endArrow=none;dashed=1;html=1;strokeColor=#666666;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="960" y="70" as="sourcePoint"/><mxPoint x="960" y="420" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="id10" value="Remplit le formulaire actif" style="html=1;endArrow=block;endFill=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="120" y="100" as="sourcePoint"/><mxPoint x="400" y="100" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="id11" value="POST /assets" style="html=1;endArrow=block;endFill=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="400" y="150" as="sourcePoint"/><mxPoint x="680" y="150" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="id12" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1"><mxGeometry x="675.0" y="190" width="10" height="160" as="geometry"/></mxCell>
+<mxCell id="id13" value="Valide les champs
+(IP, nom, criticité...)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;" vertex="1" parent="1"><mxGeometry x="600.0" y="200" width="160" height="30" as="geometry"/></mxCell>
+<mxCell id="id14" value="INSERT INTO asset (...)" style="html=1;endArrow=block;endFill=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="680" y="250" as="sourcePoint"/><mxPoint x="960" y="250" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="id15" value="Actif créé (id)" style="html=1;endArrow=block;endFill=1;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="960" y="290" as="sourcePoint"/><mxPoint x="680" y="290" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="id16" value="201 Created + actif" style="html=1;endArrow=block;endFill=1;dashed=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="680" y="330" as="sourcePoint"/><mxPoint x="400" y="330" as="targetPoint"/></mxGeometry></mxCell>
+<mxCell id="id17" value="Affiche l&#x27;actif dans la liste" style="html=1;endArrow=block;endFill=1;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="400" y="380" as="sourcePoint"/><mxPoint x="120" y="380" as="targetPoint"/></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

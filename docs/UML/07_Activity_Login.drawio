@@ -1,0 +1,29 @@
+<mxfile host="app.diagrams.net" agent="Claude" version="24.0.0">
+  <diagram id="act-login" name="Activite - Authentification">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+<mxCell id="id2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="300" y="40" width="30" height="30" as="geometry"/></mxCell>
+<mxCell id="id3" value="Saisir email et mot de passe" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1"><mxGeometry x="230" y="90" width="220" height="50" as="geometry"/></mxCell>
+<mxCell id="id4" value="" style="endArrow=block;html=1;fontSize=11;" edge="1" parent="1" source="id2" target="id3"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id5" value="Envoyer la requete de connexion" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1"><mxGeometry x="230" y="160" width="220" height="50" as="geometry"/></mxCell>
+<mxCell id="id6" value="" style="endArrow=block;html=1;fontSize=11;" edge="1" parent="1" source="id3" target="id5"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id7" value="Verifier les identifiants (hash bcrypt)" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1"><mxGeometry x="230" y="230" width="220" height="50" as="geometry"/></mxCell>
+<mxCell id="id8" value="" style="endArrow=block;html=1;fontSize=11;" edge="1" parent="1" source="id5" target="id7"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id9" value="Identifiants
+valides ?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1"><mxGeometry x="260" y="300" width="160" height="80" as="geometry"/></mxCell>
+<mxCell id="id10" value="" style="endArrow=block;html=1;fontSize=11;" edge="1" parent="1" source="id7" target="id9"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id11" value="Generer le token JWT" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1"><mxGeometry x="230" y="420" width="220" height="50" as="geometry"/></mxCell>
+<mxCell id="id12" value="Oui" style="endArrow=block;html=1;fontSize=11;" edge="1" parent="1" source="id9" target="id11"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id13" value="Rediriger vers le tableau de bord" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1"><mxGeometry x="230" y="490" width="220" height="50" as="geometry"/></mxCell>
+<mxCell id="id14" value="" style="endArrow=block;html=1;fontSize=11;" edge="1" parent="1" source="id11" target="id13"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id15" style="shape=doubleEllipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="315" y="580" width="30" height="30" as="geometry"/></mxCell>
+<mxCell id="id16" value="" style="endArrow=block;html=1;fontSize=11;" edge="1" parent="1" source="id13" target="id15"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id17" value="Afficher message d&#x27;erreur" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1"><mxGeometry x="580" y="420" width="200" height="50" as="geometry"/></mxCell>
+<mxCell id="id18" value="Non" style="endArrow=block;html=1;fontSize=11;" edge="1" parent="1" source="id9" target="id17"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id19" value="Reessayer" style="endArrow=block;html=1;fontSize=11;" edge="1" parent="1" source="id17" target="id3"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

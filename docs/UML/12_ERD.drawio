@@ -1,0 +1,135 @@
+<mxfile host="app.diagrams.net" agent="Claude" version="24.0.0">
+  <diagram id="erd-vulnguard" name="ERD - Base de donnees">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="950" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+<mxCell id="id2" value="users" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1"><mxGeometry x="40" y="40" width="210" height="166" as="geometry"/></mxCell>
+<mxCell id="id3" value="PK id: UUID
+nom: VARCHAR
+prenom: VARCHAR
+email: VARCHAR (UQ)
+password_hash: VARCHAR
+FK role_id -&gt; roles.id
+actif: BOOLEAN
+date_creation: TIMESTAMP" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id2"><mxGeometry y="30" width="210" height="136" as="geometry"/></mxCell>
+<mxCell id="id4" value="roles" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1"><mxGeometry x="320" y="40" width="210" height="70" as="geometry"/></mxCell>
+<mxCell id="id5" value="PK id: UUID
+nom: VARCHAR" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id4"><mxGeometry y="30" width="210" height="40" as="geometry"/></mxCell>
+<mxCell id="id6" value="sessions" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1"><mxGeometry x="40" y="220" width="210" height="102" as="geometry"/></mxCell>
+<mxCell id="id7" value="PK id: UUID
+FK user_id -&gt; users.id
+token: VARCHAR
+date_expiration: TIMESTAMP" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id6"><mxGeometry y="30" width="210" height="72" as="geometry"/></mxCell>
+<mxCell id="id8" value="assets" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1"><mxGeometry x="620" y="40" width="210" height="182" as="geometry"/></mxCell>
+<mxCell id="id9" value="PK id: UUID
+nom: VARCHAR
+ip: INET
+hostname: VARCHAR
+FK category_id -&gt; asset_categories.id
+FK location_id -&gt; locations.id
+FK os_id -&gt; operating_systems.id
+criticite: ENUM
+statut: ENUM" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id8"><mxGeometry y="30" width="210" height="152" as="geometry"/></mxCell>
+<mxCell id="id10" value="asset_categories" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1"><mxGeometry x="940" y="40" width="210" height="70" as="geometry"/></mxCell>
+<mxCell id="id11" value="PK id: UUID
+nom: VARCHAR" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id10"><mxGeometry y="30" width="210" height="40" as="geometry"/></mxCell>
+<mxCell id="id12" value="locations" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1"><mxGeometry x="940" y="150" width="210" height="70" as="geometry"/></mxCell>
+<mxCell id="id13" value="PK id: UUID
+nom: VARCHAR" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id12"><mxGeometry y="30" width="210" height="40" as="geometry"/></mxCell>
+<mxCell id="id14" value="operating_systems" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1"><mxGeometry x="940" y="250" width="210" height="86" as="geometry"/></mxCell>
+<mxCell id="id15" value="PK id: UUID
+nom: VARCHAR
+version: VARCHAR" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id14"><mxGeometry y="30" width="210" height="56" as="geometry"/></mxCell>
+<mxCell id="id16" value="scanners" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1"><mxGeometry x="620" y="260" width="210" height="86" as="geometry"/></mxCell>
+<mxCell id="id17" value="PK id: UUID
+nom: VARCHAR
+type: ENUM" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id16"><mxGeometry y="30" width="210" height="56" as="geometry"/></mxCell>
+<mxCell id="id18" value="scans" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1"><mxGeometry x="620" y="380" width="210" height="150" as="geometry"/></mxCell>
+<mxCell id="id19" value="PK id: UUID
+FK scanner_id -&gt; scanners.id
+FK asset_id -&gt; assets.id
+FK user_id -&gt; users.id
+date_debut: TIMESTAMP
+date_fin: TIMESTAMP
+statut: ENUM" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id18"><mxGeometry y="30" width="210" height="120" as="geometry"/></mxCell>
+<mxCell id="id20" value="cve" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1"><mxGeometry x="40" y="380" width="210" height="102" as="geometry"/></mxCell>
+<mxCell id="id21" value="PK id: UUID
+code: VARCHAR (UQ)
+description: TEXT
+cvss_base: FLOAT" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id20"><mxGeometry y="30" width="210" height="72" as="geometry"/></mxCell>
+<mxCell id="id22" value="detections" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1"><mxGeometry x="300" y="480" width="210" height="118" as="geometry"/></mxCell>
+<mxCell id="id23" value="PK id: UUID
+FK scan_id -&gt; scans.id
+FK asset_id -&gt; assets.id
+FK cve_id -&gt; cve.id
+date_detection: TIMESTAMP" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id22"><mxGeometry y="30" width="210" height="88" as="geometry"/></mxCell>
+<mxCell id="id24" value="vulnerability_instances" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1"><mxGeometry x="620" y="560" width="210" height="102" as="geometry"/></mxCell>
+<mxCell id="id25" value="PK id: UUID
+FK detection_id -&gt; detections.id
+statut: ENUM
+risk_score: FLOAT" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id24"><mxGeometry y="30" width="210" height="72" as="geometry"/></mxCell>
+<mxCell id="id26" value="patches" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1"><mxGeometry x="40" y="560" width="210" height="102" as="geometry"/></mxCell>
+<mxCell id="id27" value="PK id: UUID
+FK cve_id -&gt; cve.id
+description: TEXT
+disponible: BOOLEAN" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id26"><mxGeometry y="30" width="210" height="72" as="geometry"/></mxCell>
+<mxCell id="id28" value="remediations" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1"><mxGeometry x="940" y="480" width="210" height="118" as="geometry"/></mxCell>
+<mxCell id="id29" value="PK id: UUID
+FK vuln_instance_id -&gt; vulnerability_instances.id
+FK technicien_id -&gt; users.id
+statut: ENUM
+date_echeance: TIMESTAMP" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id28"><mxGeometry y="30" width="210" height="88" as="geometry"/></mxCell>
+<mxCell id="id30" value="tasks" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1"><mxGeometry x="940" y="650" width="210" height="102" as="geometry"/></mxCell>
+<mxCell id="id31" value="PK id: UUID
+FK remediation_id -&gt; remediations.id
+description: TEXT
+statut: ENUM" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id30"><mxGeometry y="30" width="210" height="72" as="geometry"/></mxCell>
+<mxCell id="id32" value="comments" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1"><mxGeometry x="620" y="720" width="210" height="118" as="geometry"/></mxCell>
+<mxCell id="id33" value="PK id: UUID
+FK remediation_id -&gt; remediations.id
+FK user_id -&gt; users.id
+texte: TEXT
+date: TIMESTAMP" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id32"><mxGeometry y="30" width="210" height="88" as="geometry"/></mxCell>
+<mxCell id="id34" value="reports" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#cce5ff;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1"><mxGeometry x="40" y="720" width="210" height="118" as="geometry"/></mxCell>
+<mxCell id="id35" value="PK id: UUID
+FK user_id -&gt; users.id
+type: ENUM
+format: ENUM
+date_generation: TIMESTAMP" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id34"><mxGeometry y="30" width="210" height="88" as="geometry"/></mxCell>
+<mxCell id="id36" value="notifications" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#cce5ff;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1"><mxGeometry x="300" y="660" width="210" height="118" as="geometry"/></mxCell>
+<mxCell id="id37" value="PK id: UUID
+FK user_id -&gt; users.id
+titre: VARCHAR
+message: TEXT
+lue: BOOLEAN" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id36"><mxGeometry y="30" width="210" height="88" as="geometry"/></mxCell>
+<mxCell id="id38" value="audit_logs" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;fillColor=#cce5ff;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1"><mxGeometry x="300" y="800" width="210" height="102" as="geometry"/></mxCell>
+<mxCell id="id39" value="PK id: UUID
+FK user_id -&gt; users.id
+action: VARCHAR
+date: TIMESTAMP" style="text;align=left;verticalAlign=top;spacingLeft=6;spacingTop=2;fontSize=11;html=1;whiteSpace=wrap;fontFamily=Courier New;" vertex="1" parent="id38"><mxGeometry y="30" width="210" height="72" as="geometry"/></mxCell>
+<mxCell id="id40" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id4" target="id2"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id41" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id2" target="id6"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id42" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id2" target="id18"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id43" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id2" target="id28"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id44" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id2" target="id32"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id45" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id2" target="id34"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id46" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id2" target="id36"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id47" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id2" target="id38"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id48" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id10" target="id8"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id49" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id12" target="id8"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id50" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id14" target="id8"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id51" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id16" target="id18"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id52" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id8" target="id18"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id53" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id18" target="id22"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id54" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id8" target="id22"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id55" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id20" target="id22"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id56" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id20" target="id26"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id57" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id22" target="id24"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id58" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id24" target="id28"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id59" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id28" target="id30"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="id60" value="" style="endArrow=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;fontSize=10;" edge="1" parent="1" source="id28" target="id32"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
