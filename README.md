@@ -145,8 +145,8 @@ Feuille de route
 - [x] Cadrage du projet
 - [x] Cahier des charges
 - [x] Analyse des besoins
-- [ ] Diagrammes UML
-- [ ] Conception de la base de données
+- [x] Diagrammes UML
+- [x] Conception de la base de données
 - [ ] Développement Backend
 - [ ] Développement Frontend
 - [ ] Intégration Nmap
